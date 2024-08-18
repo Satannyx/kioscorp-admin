@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
 import { useNavigate } from 'react-router-dom';
-import logo from '../img/Logo/kioscorp.png';  // Import the image
+import logo from '../img/Logo/kioscorp.png';  // Import the logo
+import anotherlogo from '../img/Logo/anotherlogo.png';  // Import the logo
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -9,6 +10,28 @@ const Dashboard = () => {
   const handleLogout = () => {
     navigate('/sign-in');
   };
+
+  const [dateTime, setDateTime] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setDateTime(new Date());
+    }, 1000);
+
+    return () => clearInterval(timer);
+  }, []);
+
+  const formattedDate = dateTime.toLocaleDateString('en-US', {
+    month: 'long',
+    day: '2-digit',
+    year: 'numeric',
+  });
+
+  const formattedTime = dateTime.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
+    second: '2-digit',
+  });
 
   return (
     <div className="dashboard-container">
@@ -18,11 +41,11 @@ const Dashboard = () => {
             <img src={logo} alt="KiosCorp Logo" />
           </div>
           <div className="dashboard-menu">
-            <a href="#" className="dashboard-menu-item active">
+            <a href="#" className="dashboard-menu-item">
               <i className="fas fa-bars"></i>
               Menu
             </a>
-            <a href="#" className="dashboard-menu-item">
+            <a href="#" className="dashboard-menu-item active">
               <i className="fas fa-home"></i>
               Home
             </a>
@@ -54,12 +77,19 @@ const Dashboard = () => {
       <div className="dashboard-main">
         <header className="dashboard-header">
           <div className="dashboard-header-content">
-            <h1>Welcome,</h1>
-            <h2>Inventory Management System</h2>
+            <img src={anotherlogo} alt="Another Logo" className="dashboard-header-logo" />
+            <div className="dashboard-header-text">
+              <h1>Welcome to</h1>
+              <h2>Inventory Management System</h2>
+            </div>
           </div>
           <div className="dashboard-header-info">
-            <span>Universal Auto Supply and Bolt Center</span>
-            <span>June 22, 2024 09:47</span>
+            <span>
+              <strong>Universal Auto Supply <strong className="highlight">and</strong> Bolt Center</strong>
+            </span>
+            <div className="dashboard-date-time">
+              <span1>{formattedDate} | {formattedTime}</span1>
+            </div>
           </div>
         </header>
         <div className="dashboard-content">
