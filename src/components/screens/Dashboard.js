@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import './Dashboard.css';
 import { useNavigate } from 'react-router-dom';
-import logo from '../img/Logo/kioscorp.png';  // Import the logo
-import anotherlogo from '../img/Logo/anotherlogo.png';  // Import the logo
+import logo from '../img/Logo/kioscorp.png';
+import anotherlogo from '../img/Logo/anotherlogo.png';
 
 const Dashboard = () => {
   const navigate = useNavigate();
@@ -88,33 +88,47 @@ const Dashboard = () => {
               <strong>Universal Auto Supply <strong className="highlight">and</strong> Bolt Center</strong>
             </span>
             <div className="dashboard-date-time">
-              <span1>{formattedDate} | {formattedTime}</span1>
+              <span>{formattedDate} | {formattedTime}</span>
             </div>
           </div>
         </header>
         <div className="dashboard-content">
-          <div className="dashboard-summary">
-            <div className="dashboard-summary-card">
-              <h3>Hi Albert,</h3>
-            </div>
-            <div className="dashboard-summary-card">
-              <h3>Monthly Sales</h3>
-              <p>₱ 15,000</p>
-              <p>Increase 10%</p>
-            </div>
-            <div className="dashboard-summary-card">
-              <h3>Recent Orders</h3>
-              <ul>
-                <li>#00001 - ₱15,000</li>
-                <li>#00002 - ₱500</li>
-                <li>#00003 - ₱200</li>
-                <li>#00004 - ₱10,000</li>
-                <li>#00005 - ₱2,000</li>
-              </ul>
-            </div>
+          <div className="dashboard-summary-card">
+            <h3>Hi User,</h3>
+          </div>
+          <div className="dashboard-summary-card">
+            <h3>Monthly Sales</h3>
+            <p>₱ 15,000</p>
+            <p>Increase 10%</p>
+            <a href="#">See All...</a>
+          </div>
+          <div className="dashboard-summary-card">
+            <h3>Recent Orders</h3>
+            <ul>
+              <li>#00001 - ₱15,000</li>
+              <li>#00002 - ₱500</li>
+              <li>#00003 - ₱200</li>
+              <li>#00004 - ₱10,000</li>
+              <li>#00005 - ₱2,000</li>
+            </ul>
+            <a href="#">See All...</a>
+          </div>
+          <div className="dashboard-summary-card">
+            <h3>Today's Overview</h3>
+            <p>Sales: ₱10,000 Total</p>
+            <p>Purchase: 150 Items Total</p>
+            <p>No. of Customers: 100 Total</p>
+            <a href="#">See All...</a>
           </div>
           <div className="dashboard-graph">
-            {/* Your Graph Content Here */}
+            <h3>Yearly, Monthly, and Today's Sales and Customers</h3>
+            {/* Graph content here */}
+          </div>
+          <div className="dashboard-summary-card">
+            <h3>Inventory</h3>
+            <p>Auto Supplies - 5000/10000 Items</p>
+            <p>Bolts - 15000/50000 Items</p>
+            <a href="#">See All...</a>
           </div>
         </div>
       </div>
